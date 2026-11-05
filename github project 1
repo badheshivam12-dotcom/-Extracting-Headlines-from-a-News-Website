@@ -1,0 +1,8 @@
+# Example: Extracting Headlines from a News Website
+import requests
+from bs4 import BeautifulSoup
+url = 'https://news.ycombinator.com/'
+response = requests.get(url)
+soup = BeautifulSoup(response.text, 'html.parser')
+for item in soup.find_all('a', class_='storylink'):
+   print(item.text)
